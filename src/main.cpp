@@ -29,8 +29,8 @@ double read_altitude_ft()
 void print_title(const char *title)
 {
   // Calculate the horizontal position the title should be printed so that it's centered
-  size_t title_len_px = strlen(title) * DISPLAY_TITLE_FONT_WIDTH;
-  size_t title_start_px = (display.width() - title_len_px) / 2;
+  lcduint_t title_len_px = strlen(title) * DISPLAY_TITLE_FONT_WIDTH;
+  lcduint_t title_start_px = display.width() > title_len_px ? (display.width() - title_len_px) / 2 : 0;
 
   display.printFixedN(title_start_px, 0, title, EFontStyle::STYLE_NORMAL, FONT_SIZE_2X);
 }
@@ -50,8 +50,8 @@ void print_altitude(double altitude_ft)
   display.fillRect(0, DISPLAY_TITLE_FONT_HEIGHT, display.width(), display.height());
 
   // Calculate the horizontal position the altitude should be printed so that it's centered
-  size_t altitude_len_px = altitude.length() * DISPLAY_ALTITUDE_FONT_WIDTH;
-  size_t altitude_start_px = (display.width() - altitude_len_px) / 2;
+  lcduint_t altitude_len_px = altitude.length() * DISPLAY_ALTITUDE_FONT_WIDTH;
+  lcduint_t altitude_start_px = display.width() > altitude_len_px ? (display.width() - altitude_len_px) / 2 : 0;
 
   display.printFixedN(altitude_start_px, display.height() / 2, altitude.c_str(), EFontStyle::STYLE_NORMAL, FONT_SIZE_4X);
   displayed_altitude = altitude;
