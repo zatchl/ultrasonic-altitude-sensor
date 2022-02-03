@@ -68,8 +68,7 @@ void setup()
 
 void loop()
 {
-  double altitude_ft = read_altitude_ft();
-  print_altitude(altitude_ft);
+  print_altitude(read_altitude_ft());
 
   delay(500);
 }
