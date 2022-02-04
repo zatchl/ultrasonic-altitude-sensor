@@ -1,6 +1,6 @@
 # ultrasonic-altitude-sensor
 
-Use an ultrasonic sensor to measure altitude and display it in the cockpit of an airplane.
+Use an ultrasonic sensor to measure altitude (when very close to the ground) and display it in the cockpit of an airplane.
 
 ## Requirements
 
