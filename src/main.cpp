@@ -2,7 +2,7 @@
 
 // https://www.maxbotix.com/documents/LV-MaxSonar-EZ_Datasheet.pdf
 const int PW_US_PER_INCH = 147;
-const int SONAR_PW_PIN = 3;
+const int ULTRASONIC_PWM_PIN = 3;
 const uint8_t *DISPLAY_FONT = ssd1306xled_font6x8;
 const uint8_t DISPLAY_FONT_WIDTH = DISPLAY_FONT[1];
 const uint8_t DISPLAY_FONT_HEIGHT = DISPLAY_FONT[2];
@@ -15,10 +15,8 @@ String displayed_altitude = "";
 
 double read_altitude_in()
 {
-  unsigned long pw_us = pulseIn(SONAR_PW_PIN, HIGH);
-
   // Convert pulse width (µs) to inches
-  return (double)pw_us / PW_US_PER_INCH;
+  return (double)pulseIn(ULTRASONIC_PWM_PIN, HIGH) / PW_US_PER_INCH;
 }
 
 double read_altitude_ft()
